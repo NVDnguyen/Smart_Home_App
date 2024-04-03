@@ -1,13 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_2/screen/login.dart';
-import 'package:flutter_application_2/widgets/button_log.dart';
-import 'package:flutter_application_2/widgets/button_social.dart';
-import 'package:flutter_application_2/widgets/text_button.dart';
-import 'package:flutter_application_2/widgets/text_field.dart';
-import 'package:flutter_application_2/widgets/text_title.dart';
+// ignore_for_file: library_private_types_in_public_api, camel_case_types
 
+import 'package:flutter/material.dart';
+import 'package:flutter_application_2/models/users.dart';
+import 'package:flutter_application_2/screen/login.dart';
+import 'package:flutter_application_2/services/auth_firebase.dart';
+import 'package:flutter_application_2/widgets/Button/button_form.dart';
+import 'package:flutter_application_2/widgets/Button/button_social.dart';
+import 'package:flutter_application_2/widgets/Notice/notice_snackbar.dart';
+import 'package:flutter_application_2/widgets/Text/text_button.dart';
+import 'package:flutter_application_2/widgets/Text/text_field.dart';
+import 'package:flutter_application_2/widgets/Text/text_title.dart';
 
 class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
   @override
   _registerScreenState createState() => _registerScreenState();
 }
@@ -20,7 +26,7 @@ class _registerScreenState extends State<RegisterScreen> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState();   
     _userNameEditingController = TextEditingController();
     _emailEditingController = TextEditingController();
     _addressNameEditingController = TextEditingController();
@@ -37,12 +43,14 @@ class _registerScreenState extends State<RegisterScreen> {
     super.dispose();
   }
 
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final _formKey = GlobalKey<FormState>();
+
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: Color.fromRGBO(247, 248, 250, 1),
+        backgroundColor: const Color.fromRGBO(247, 248, 250, 1),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -51,83 +59,147 @@ class _registerScreenState extends State<RegisterScreen> {
                 height: 100,
               ),
               const SizedBox(
-                child: const TitleTextWidget(text: "Create"),
+                child: TitleTextWidget(text: "Create"),
               ),
               const SizedBox(
-                child: const TitleTextWidget(text: "Your Account"),
+                child: TitleTextWidget(text: "Your Account"),
               ),
               const SizedBox(
                 height: 30,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
                 child: Center(
-                  child: Column(
-                    children: [
-                      TextFieldtWidget(
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        TextFieldtWidget(
                           labelText: "User Name",
                           textEditingController: _userNameEditingController,
-                          icon: Icons.email_outlined),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      TextFieldtWidget(
+                          icon: Icons.email_outlined,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter user name';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextFieldtWidget(
                           labelText: "Email",
                           textEditingController: _emailEditingController,
-                          icon: Icons.email_outlined),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      TextFieldtWidget(
+                          icon: Icons.email_outlined,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextFieldtWidget(
                           labelText: "Address",
                           textEditingController: _addressNameEditingController,
-                          icon: Icons.account_balance_outlined),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      TextFieldtWidget(
+                          icon: Icons.account_balance_outlined,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your address';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextFieldtWidget(
                           labelText: "Password",
                           textEditingController: _passwordNameEditingController,
-                          icon: Icons.lock_clock_outlined),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ButtonLogWidget(
-                        colorButton: Color.fromARGB(255, 9, 11, 90),
-                        colorText: Colors.white,
-                        screenToNavigate: LoginScreen(),
-                        text: "Register",
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      SizedBox(
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              "Already Have An Account ?",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 150, 147, 147)),
-                            ),
-                            TextButtonWidget(
-                                buttonText: "Sign in", screen: LoginScreen())
-                          ],
+                          icon: Icons.lock_clock_outlined,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter password';
+                            }
+                            return null;
+                          },
                         ),
-                      ),
-                      const Divider(
-                        color: Color.fromARGB(255, 150, 147, 147),
-                        height: 50,
-                      ),
-                      SocialButtonRow(
-                          onGooglePressed: () {}, onFacebookPressed: () {}),
-                    ],
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ButtonFormWidget(
+                          colorButton: const Color.fromARGB(255, 9, 11, 90),
+                          colorText: Colors.white,
+                          text: "Register",
+                          onPressed: () {
+                            // Validate form
+
+                            if (_formKey.currentState!.validate()) {
+                              // If form is valid, proceed with login action
+                              _register();
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const SizedBox(
+                          height: 50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Already Have An Account ?",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 150, 147, 147)),
+                              ),
+                              TextButtonWidget(
+                                  buttonText: "Sign in", screen: LoginScreen())
+                            ],
+                          ),
+                        ),
+                        const Divider(
+                          color: Color.fromARGB(255, 150, 147, 147),
+                          height: 50,
+                        ),
+                        SocialButtonRow(
+                            onGooglePressed: () {}, onFacebookPressed: () {}),
+                      ],
+                    ),
                   ),
                 ),
               )
             ],
           ),
         ));
+  }
+
+  Future<void> _register() async {
+    try {
+      String username = _userNameEditingController.text;
+      String email = _emailEditingController.text;
+      String address = _addressNameEditingController.text;
+      String password = _passwordNameEditingController.text;
+      Users user = Users.register(
+          username: username,
+          password: password,
+          email: email,
+          address: address);
+      // store in firebase
+      if (await _auth.registerUser(user)) {
+        print("Register successfully");
+        const CustomSnackBar(message: "Register Successfully", seconds: 3);
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+      } else {
+        print("Register Fail");
+         const CustomSnackBar(message: "Register Fail", seconds: 3);
+      }
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

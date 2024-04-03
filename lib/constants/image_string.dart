@@ -1,2 +1,2 @@
-const String profileDemo = "assets/images/img.png";
-const String profileUser1 ="assets/images/user1.jpg";
+// ignore: constant_identifier_names
+const String IMAGE_DEFAULT ="assets/images/user1.jpg";

@@ -11,7 +11,7 @@ class _newScreenState extends State<NewsScreen> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title:Text("NEWS"),
+        title:Text("News"),
       ),
     );
   }

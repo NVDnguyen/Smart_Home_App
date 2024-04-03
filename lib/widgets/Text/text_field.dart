@@ -4,19 +4,23 @@ class TextFieldtWidget extends StatelessWidget {
   final String labelText;
   final TextEditingController textEditingController;
   final IconData icon;
+  final String ? Function(String?)? validator;
 
   const TextFieldtWidget({
     Key? key,
     required this.labelText,
     required this.textEditingController,
     required this.icon,
+     this.validator,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: textEditingController,
+      validator: validator,      
       decoration: InputDecoration(
+        
       
         prefixIcon: Icon(icon),
         prefixIconColor: Color.fromARGB(255, 167, 165, 165),
@@ -28,7 +32,9 @@ class TextFieldtWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide.none, // Remove the black border
         ),
+        
       ),
+      
     );
   }
 }

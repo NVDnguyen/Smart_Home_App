@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screen/login.dart';
 import 'package:flutter_application_2/screen/register.dart';
-import 'package:flutter_application_2/widgets/button_log.dart';
-import 'package:flutter_application_2/widgets/button_social.dart';
-import 'package:flutter_application_2/widgets/text_title.dart';
+import 'package:flutter_application_2/widgets/Button/button_log.dart';
+import 'package:flutter_application_2/widgets/Button/button_social.dart';
+import 'package:flutter_application_2/widgets/Text/text_title.dart';
 
 
 class WellcomeScreen extends StatefulWidget {
@@ -30,7 +30,7 @@ class _wellcomeScreenState extends State<WellcomeScreen> {
               child: TitleTextWidget(text: "RISCS Lab"),
             ),
             const SizedBox(
-              height: 300,
+              height: 250,
             ),
             ButtonLogWidget(
               colorButton: Color.fromARGB(255, 9, 11, 90),
