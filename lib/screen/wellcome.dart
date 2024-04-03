@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/screen/login.dart';
-import 'package:flutter_application_2/screen/register.dart';
-import 'package:flutter_application_2/widgets/Button/button_log.dart';
-import 'package:flutter_application_2/widgets/Button/button_social.dart';
-import 'package:flutter_application_2/widgets/Text/text_title.dart';
+import 'package:iot_app/screen/login.dart';
+import 'package:iot_app/screen/register.dart';
+import 'package:iot_app/widgets/Button/button_log.dart';
+import 'package:iot_app/widgets/Button/button_social.dart';
+import 'package:iot_app/widgets/Text/text_title.dart';
 
 
 class WellcomeScreen extends StatefulWidget {

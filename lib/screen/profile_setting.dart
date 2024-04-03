@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Layout/layout.dart';
-import 'package:flutter_application_2/models/users.dart';
-import 'package:flutter_application_2/services/auth_firebase.dart';
-import 'package:flutter_application_2/utils/data_user.dart';
-import 'package:flutter_application_2/utils/image_picker.dart';
-import 'package:flutter_application_2/widgets/Notice/notice_snackbar.dart';
+import 'package:iot_app/Layout/layout.dart';
+import 'package:iot_app/models/users.dart';
+import 'package:iot_app/services/auth_firebase.dart';
+import 'package:iot_app/utils/data_user.dart';
+import 'package:iot_app/utils/image_picker.dart';
+import 'package:iot_app/widgets/Notice/notice_snackbar.dart';
 
 class ProfileSetting extends StatefulWidget {
   const ProfileSetting({Key? key}) : super(key: key);

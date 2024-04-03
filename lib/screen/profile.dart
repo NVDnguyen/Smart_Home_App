@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/models/users.dart';
-import 'package:flutter_application_2/screen/profile_setting.dart';
-import 'package:flutter_application_2/screen/wellcome.dart';
-import 'package:flutter_application_2/utils/data_user.dart';
+import 'package:iot_app/models/users.dart';
+import 'package:iot_app/screen/profile_setting.dart';
+import 'package:iot_app/screen/wellcome.dart';
+import 'package:iot_app/utils/data_user.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

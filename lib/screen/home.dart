@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/models/users.dart';
-import 'package:flutter_application_2/utils/data_user.dart';
-import 'package:flutter_application_2/utils/user_provider.dart';
-import 'package:flutter_application_2/widgets/IoT/gauge.dart';
-import 'package:flutter_application_2/widgets/IoT/gauge_mult.dart';
-import 'package:flutter_application_2/widgets/IoT/switch.dart';
+import 'package:iot_app/models/users.dart';
+import 'package:iot_app/utils/data_user.dart';
+import 'package:iot_app/utils/user_provider.dart';
+import 'package:iot_app/widgets/IoT/gauge.dart';
+import 'package:iot_app/widgets/IoT/gauge_mult.dart';
+import 'package:iot_app/widgets/IoT/switch.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:flutter_application_2/constants/image_string.dart';
+import 'package:iot_app/constants/image_string.dart';
 
 class Users {
   final String username;

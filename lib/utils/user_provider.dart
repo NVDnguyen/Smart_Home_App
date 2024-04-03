@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/models/users.dart';
+import 'package:iot_app/models/users.dart';
 
 class UserProvider extends ChangeNotifier {
   Users ? _user;

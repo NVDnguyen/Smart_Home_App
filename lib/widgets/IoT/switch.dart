@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_2/services/realtime_firebase.dart';
+import 'package:iot_app/services/realtime_firebase.dart';
 
 class IoTSwitch extends StatefulWidget {
   final String virtualPin;

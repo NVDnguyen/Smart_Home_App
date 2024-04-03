@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Layout/layout.dart';
-import 'package:flutter_application_2/screen/wellcome.dart';
+import 'package:iot_app/Layout/layout.dart';
+import 'package:iot_app/screen/wellcome.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_application_2/utils/user_provider.dart';
+import 'package:iot_app/utils/user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

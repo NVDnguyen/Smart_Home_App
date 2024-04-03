@@ -1,18 +1,18 @@
 // ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Layout/layout.dart';
-import 'package:flutter_application_2/models/users.dart';
-import 'package:flutter_application_2/screen/register.dart';
-import 'package:flutter_application_2/services/auth_firebase.dart';
-import 'package:flutter_application_2/utils/data_user.dart';
-import 'package:flutter_application_2/utils/user_provider.dart';
-import 'package:flutter_application_2/widgets/Button/button_form.dart';
-import 'package:flutter_application_2/widgets/Button/button_social.dart';
-import 'package:flutter_application_2/widgets/Notice/notice_snackbar.dart';
-import 'package:flutter_application_2/widgets/Text/text_button.dart';
-import 'package:flutter_application_2/widgets/Text/text_field.dart';
-import 'package:flutter_application_2/widgets/Text/text_title.dart';
+import 'package:iot_app/Layout/layout.dart';
+import 'package:iot_app/models/users.dart';
+import 'package:iot_app/screen/register.dart';
+import 'package:iot_app/services/auth_firebase.dart';
+import 'package:iot_app/utils/data_user.dart';
+import 'package:iot_app/utils/user_provider.dart';
+import 'package:iot_app/widgets/Button/button_form.dart';
+import 'package:iot_app/widgets/Button/button_social.dart';
+import 'package:iot_app/widgets/Notice/notice_snackbar.dart';
+import 'package:iot_app/widgets/Text/text_button.dart';
+import 'package:iot_app/widgets/Text/text_field.dart';
+import 'package:iot_app/widgets/Text/text_title.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

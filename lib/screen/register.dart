@@ -1,15 +1,15 @@
 // ignore_for_file: library_private_types_in_public_api, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/models/users.dart';
-import 'package:flutter_application_2/screen/login.dart';
-import 'package:flutter_application_2/services/auth_firebase.dart';
-import 'package:flutter_application_2/widgets/Button/button_form.dart';
-import 'package:flutter_application_2/widgets/Button/button_social.dart';
-import 'package:flutter_application_2/widgets/Notice/notice_snackbar.dart';
-import 'package:flutter_application_2/widgets/Text/text_button.dart';
-import 'package:flutter_application_2/widgets/Text/text_field.dart';
-import 'package:flutter_application_2/widgets/Text/text_title.dart';
+import 'package:iot_app/models/users.dart';
+import 'package:iot_app/screen/login.dart';
+import 'package:iot_app/services/auth_firebase.dart';
+import 'package:iot_app/widgets/Button/button_form.dart';
+import 'package:iot_app/widgets/Button/button_social.dart';
+import 'package:iot_app/widgets/Notice/notice_snackbar.dart';
+import 'package:iot_app/widgets/Text/text_button.dart';
+import 'package:iot_app/widgets/Text/text_field.dart';
+import 'package:iot_app/widgets/Text/text_title.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
